@@ -3,6 +3,9 @@
   "displayName": "format-kangxi",
   "description": "format kangxi radicals in file",
   "icon": "images/logo.png",
+  "repository": {
+    "url": "https://github.com/AWtnb/vscode-format-kangxi"
+  },
   "publisher": "awtnb",
   "version": "0.0.1",
   "engines": {
