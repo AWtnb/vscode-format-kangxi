@@ -4,11 +4,7 @@ import { Kangxi } from "./kangxi";
 
 const KANGXI = new Kangxi();
 
-const replaceSelections = () => {
-  const editor = vscode.window.activeTextEditor;
-  if (!editor) {
-    return;
-  }
+const replaceSelections = (editor: vscode.TextEditor) => {
   editor.edit((editBuilder) => {
     editor.selections
       .filter((sel) => !sel.isEmpty)
@@ -22,24 +18,23 @@ const replaceSelections = () => {
   });
 };
 
-const selectAllKangxis = () => {
-  const editor = vscode.window.activeTextEditor;
-  if (editor) {
-    editor.selections = KANGXI.getRanges(editor).map((range) => {
-      return new vscode.Selection(range.start, range.end);
-    });
-  }
+const selectAllKangxis = (editor: vscode.TextEditor) => {
+  editor.selections = KANGXI.getRanges(editor).map((range) => {
+    return new vscode.Selection(range.start, range.end);
+  });
 };
 
 export function activate(context: vscode.ExtensionContext) {
-
   context.subscriptions.push(
-    vscode.commands.registerCommand("format-kangxi.selectAll", selectAllKangxis)
+    vscode.commands.registerTextEditorCommand("format-kangxi.selectAll", (editor: vscode.TextEditor) => {
+      selectAllKangxis(editor);
+    })
   );
   context.subscriptions.push(
-    vscode.commands.registerCommand("format-kangxi.replaceSelection", replaceSelections)
+    vscode.commands.registerTextEditorCommand("format-kangxi.replaceSelection", (editor: vscode.TextEditor) => {
+      replaceSelections(editor);
+    })
   );
-
 }
 
 export function deactivate() {}
