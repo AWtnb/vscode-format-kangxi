@@ -5,7 +5,8 @@
 
 
 + `format-kangxi.selectAll`: select all Kangxi Radicals (康煕部首) in current file.
-+ `format-kangxi.replaceSelection`: replace Kangxi Radicals to corresponding commonly-used Japanese Kanji.
++ `format-kangxi.fix`: replace Kangxi Radicals to corresponding commonly-used Japanese Kanji.
++ `format-kangxi.openSearchPanel`: open search panel with the regular expression for the Kangxi-search.
 
 See also: [kangxi-radical](https://marketplace.visualstudio.com/items?itemName=awtnb.kangxi-radicals) (syntax highlight for plaintext).
 

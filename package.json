@@ -16,7 +16,8 @@
   ],
   "activationEvents": [
     "onCommand:format-kangxi.selectAll",
-    "onCommand:format-kangxi.replaceSelection"
+    "onCommand:format-kangxi.fix",
+    "onCommand:format-kangxi.openSearchPanel"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -26,8 +27,12 @@
         "title": "kangxi-radicals: select-all"
       },
       {
-        "command": "format-kangxi.replaceSelection",
-        "title": "kangxi-radicals: execute replace on selection"
+        "command": "format-kangxi.fix",
+        "title": "kangxi-radicals: fix"
+      },
+      {
+        "command": "format-kangxi.openSearchPanel",
+        "title": "kangxi-radicals: open search panel"
       }
     ]
   },

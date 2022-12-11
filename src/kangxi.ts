@@ -2,7 +2,8 @@ import * as vscode from "vscode";
 
 export class Kangxi {
   readonly kangxiMap: Map<string, string>;
-  readonly kangxiPattern: RegExp;
+  readonly pattern: string;
+  readonly reg: RegExp;
   constructor() {
     this.kangxiMap = new Map();
     [
@@ -223,11 +224,12 @@ export class Kangxi {
     ].forEach((pair) => {
       this.kangxiMap.set(pair[0], pair[1]);
     });
-    this.kangxiPattern = new RegExp("[\u2f00-\u2fd5]", "g");
+    this.pattern = "[\\u2f00-\\u2fd5]";
+    this.reg = new RegExp(this.pattern, "g");
   }
 
   replaceToJapanese(s: string): string {
-    return s.replace(this.kangxiPattern, (m: string) => {
+    return s.replace(this.reg, (m: string) => {
       return this.kangxiMap.get(m) || m;
     });
   }
@@ -237,7 +239,7 @@ export class Kangxi {
     for (let i = 0; i < editor.document.lineCount; i++) {
       const line = editor.document.lineAt(i);
       let match;
-      while ((match = this.kangxiPattern.exec(line.text))) {
+      while ((match = this.reg.exec(line.text))) {
         const startPos = new vscode.Position(i, match.index);
         const endPos = new vscode.Position(i, match.index + 1);
         found.push(new vscode.Range(startPos, endPos));

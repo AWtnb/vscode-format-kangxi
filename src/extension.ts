@@ -31,8 +31,17 @@ export function activate(context: vscode.ExtensionContext) {
     })
   );
   context.subscriptions.push(
-    vscode.commands.registerTextEditorCommand("format-kangxi.replaceSelection", (editor: vscode.TextEditor) => {
+    vscode.commands.registerTextEditorCommand("format-kangxi.fix", (editor: vscode.TextEditor) => {
       replaceSelections(editor);
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerTextEditorCommand("format-kangxi.openSearchPanel", () => {
+      vscode.commands.executeCommand("workbench.action.findInFiles", {
+        query: KANGXI.pattern,
+        triggerSearch: true,
+        isRegex: true,
+      });
     })
   );
 }
