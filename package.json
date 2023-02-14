@@ -14,6 +14,11 @@
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "Formatter",
+    "CJK",
+    "Japanese"
+  ],
   "activationEvents": [
     "onCommand:format-kangxi.selectAll",
     "onCommand:format-kangxi.fix",
