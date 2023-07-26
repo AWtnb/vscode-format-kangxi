@@ -29,15 +29,18 @@
     "commands": [
       {
         "command": "format-kangxi.selectAll",
-        "title": "kangxi-radicals: select-all"
+        "title": "select-all",
+        "category": "kangxi-radicals"
       },
       {
         "command": "format-kangxi.fix",
-        "title": "kangxi-radicals: fix"
+        "title": "fix",
+        "category": "kangxi-radicals"
       },
       {
         "command": "format-kangxi.openSearchPanel",
-        "title": "kangxi-radicals: open search panel"
+        "title": "open search panel",
+        "category": "kangxi-radicals"
       }
     ]
   },
